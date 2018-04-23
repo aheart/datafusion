@@ -24,6 +24,9 @@ jobs:
           keys:
             - cargo-v1-{{ checksum "Cargo.toml" }}
       - run:
+          name: Install Thrift
+          command: sh scripts/circle/install-thrift.sh
+      - run:
           name: Building Main Code
           command: sh scripts/circle/build.sh
       - run:
@@ -47,6 +50,9 @@ jobs:
       - restore_cache:
           keys:
             - cargo-v1-{{ checksum "Cargo.toml" }}
+      - run:
+          name: Install Thrift
+          command: sh scripts/circle/install-thrift.sh
       - run:
           name: Nightly Version Info
           command: rustc --version; cargo --version
