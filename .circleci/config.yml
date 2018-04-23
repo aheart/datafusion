@@ -65,6 +65,9 @@ jobs:
       - run:
           name: Test Code
           command: sh scripts/circle/test.sh
+      - run:
+          name: Upload Coverage Report
+          command: sh scripts/circle/codecov.sh
   do_deploy:
     docker:
       - image: rust:latest
